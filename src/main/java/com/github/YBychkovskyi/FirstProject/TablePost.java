@@ -57,6 +57,19 @@ public class TablePost  implements Serializable {
   public void setCreateAt(Date createAt) {
     this.createAt = createAt;
   }
+
+
+ private TableComment comment;
+
+  @ManyToOne
+  @JoinColumn(name = "TableComment_Id")
+  public TableComment getTableComment() {
+    return this.comment;
+  }
+
+  public void setTableComment(TableComment comment) {
+    this.comment = comment;
+  }
 }
 
 
