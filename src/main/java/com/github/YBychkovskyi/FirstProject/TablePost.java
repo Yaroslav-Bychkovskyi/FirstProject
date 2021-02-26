@@ -3,12 +3,13 @@ package com.github.YBychkovskyi.FirstProject;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Table(name = "Post")
+@Table(name = "post")
 public class TablePost  implements Serializable {
 
   private int id;
@@ -59,16 +60,15 @@ public class TablePost  implements Serializable {
   }
 
 
- private TableComment comment;
+ private Set<TableComment> comments;
 
-  @ManyToOne
-  @JoinColumn(name = "TableComment_Id")
-  public TableComment getTableComment() {
-    return this.comment;
+  @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+  public Set<TableComment> getComments() {
+    return comments;
   }
 
-  public void setTableComment(TableComment comment) {
-    this.comment = comment;
+  public void setComments(Set<TableComment> comments) {
+    this.comments = comments;
   }
 }
 

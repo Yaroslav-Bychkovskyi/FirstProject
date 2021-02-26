@@ -10,7 +10,7 @@ import java.util.Set;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "Comment")
+@Table(name = "comment")
 public class TableComment implements Serializable {
   private int id;
   private String text;
@@ -56,26 +56,17 @@ public class TableComment implements Serializable {
     this.createdAt = createdAt;
   }
 
-  private Set<TablePost> tablePosts = new HashSet<TablePost>();
+  private TablePost post;
 
-  @OneToMany(mappedBy = "Comment", cascade = CascadeType.ALL, orphanRemoval = true)
-  public Set<TablePost> getTablePosts() {
-    return this.tablePosts;
+  @ManyToOne(cascade = CascadeType.ALL)
+@JoinColumn(name = "post_id")
+  public TablePost getPost() {
+    return post;
   }
 
-  public void setTablePosts(Set<TablePost> tablePosts) {
-    this.tablePosts = tablePosts;
+  public void setPost(TablePost post) {
+    this.post = post;
   }
-
-  public void addTeblePost(TablePost tablePost) {
-    tablePost.setTableComment(this);
-    getTablePosts().add(tablePost);
-  }
-
-  public void removeTablePost(TablePost tablePost) {
-    getTablePosts().remove(tablePost);
-  }
-
 }
 
 
