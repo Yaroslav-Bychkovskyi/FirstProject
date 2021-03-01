@@ -1,11 +1,9 @@
 package com.github.YBychkovskyi.FirstProject;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -48,7 +46,7 @@ public class TableComment implements Serializable {
   }
 
   @Column(name = "createdAt")
-  public Date getCreatedAt() {
+  public Date getCreatedAt(Date createAt) {
     return this.createdAt;
   }
 
