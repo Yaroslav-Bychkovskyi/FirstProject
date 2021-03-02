@@ -1,5 +1,8 @@
 package com.github.YBychkovskyi.FirstProject;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -7,69 +10,32 @@ import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+@Getter
+@Setter
 
 @Entity
 @Table(name = "post")
 public class TablePost  implements Serializable {
 
-  private int id;
-  private String text;
-  private String username;
-  private Date createAt;
-
-
-
   @Id
   @GeneratedValue(strategy = IDENTITY)
   @Column(name = "id")
-  public int getId() {
-    return this.id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
+  private int id;
 
   @Column(name = "text")
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
+  private String text;
 
   @Column(name = "username")
-  public String getUsername() {
-    return this.username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
+  private String username;
 
   @Temporal(TemporalType.DATE)
   @Column(name = "createAt")
-  public Date getCreateAt() {
-    return this.createAt;
-  }
-
-  public void setCreateAt(Date createAt) {
-    this.createAt = createAt;
-  }
-
-
- private Set<TableComment> comments;
+  private Date createAt;
 
   @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-  public Set<TableComment> getComments() {
-    return comments;
-  }
+  private Set<TableComment> comments;
 
-  public void setComments(Set<TableComment> comments) {
-    this.comments = comments;
-  }
+
 }
 
 
