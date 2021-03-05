@@ -3,19 +3,15 @@ package com.github.YBychkovskyi.FirstProject;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
-public class Post {
+public class Like {
+
   private int id;
-  private String text;
   private String username;
   private Date createdAt;
-  private List<Comment> comments;
-  private int likes;
-
+  private int postId;
 
 }

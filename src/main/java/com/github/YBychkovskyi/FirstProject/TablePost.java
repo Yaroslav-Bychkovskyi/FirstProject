@@ -35,6 +35,9 @@ public class TablePost  implements Serializable {
   @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
   private Set<TableComment> comments;
 
+  @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+  private Set<TableLike> likes;
+
 
 }
 
