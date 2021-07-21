@@ -13,7 +13,7 @@ public class SumElementsMinimumMaximum {
 
     Random rnd = new Random();
     for (int i = 0; i < mass.length; i++) {
-      mass[i] = rnd.nextInt(50);
+      mass[i] = rnd.nextInt(50)-20;
     }
     System.out.println(Arrays.toString(mass));
 
@@ -27,14 +27,11 @@ public class SumElementsMinimumMaximum {
     }
     System.out.println(mass[min] + " " + mass[max]);
 
-    int j;
-    if (min > max) {
-      j = min;
-      min = max;
-      max = j;
-    }
 
-    for (int i = min + 1; i < max; i++) {
+    int start = Math.min(min, max);
+    int end = Math.max(min, max);
+
+    for (int i = start + 1; i < end; i++) {
       sum += mass[i];
     }
     System.out.println(sum);
