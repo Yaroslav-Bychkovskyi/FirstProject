@@ -6,6 +6,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+import java.util.HashSet;
+
 import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -35,9 +38,44 @@ public class TablePost  implements Serializable {
   @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
   private Set<TableComment> comments;
 
+
   @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
   private Set<TableLike> likes;
 
+
+
+/* private TableComment comment;
+
+ @ManyToOne
+  @JoinColumn(name = "id", referencedColumnName  = "TablePost_Id")
+  public TableComment getComment() {
+    return this.comment;
+  }
+
+  public void setComment(TableComment comment) {
+    this.comment = comment;
+  }*/
+
+
+  private Set<TableComment> tableComments = new HashSet<TableComment>();
+
+  @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+  public Set<TableComment> getTableComments() {
+    return this.tableComments;
+  }
+
+  public void setTableComments(Set<TableComment> tableComments) {
+    this.tableComments = tableComments;
+  }
+
+  public void addTebleComment(TableComment tableComments) {
+    tableComments.setPost(this);
+    getTableComments().add(tableComments);
+  }
+
+  public void removeTableComment(TablePost tableComments) {
+    getTableComments().remove(tableComments);
+  }
 
 }
 
