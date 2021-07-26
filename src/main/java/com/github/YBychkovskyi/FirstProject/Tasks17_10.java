@@ -16,7 +16,7 @@ public class Tasks17_10 {
     for (int i = 1; i < length; i++) {
       m = m * 10;
     }
-    System.out.println(m);
+    //System.out.println(m);
 
     final var rozrad = m;
 
