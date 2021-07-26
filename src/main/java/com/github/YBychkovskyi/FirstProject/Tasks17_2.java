@@ -13,7 +13,7 @@ public class Tasks17_2 {
 
   public static void main(String[] args) {
 
-    int a = 0, b = 0, f=0;
+    int a = 0, b = 0, f = 0;
     double c, d;
     boolean e = false;
     // a=testl(5.3, a, e);
@@ -23,14 +23,14 @@ public class Tasks17_2 {
       test2(d, c + b, e);
     }*/
 
-    System.out.println(what(7,3));
-    System.out.println(what(14,35));
+    System.out.println(what(7, 3));
+    System.out.println(what(14, 35));
   }
 
-  public static int what(int a, int b){
-    while (a!=b){
-      if(a>b) a = a-b;
-      else b= b - a;
+  public static int what(int a, int b) {
+    while (a != b) {
+      if (a > b) a = a - b;
+      else b = b - a;
     }
     return a;
   }
