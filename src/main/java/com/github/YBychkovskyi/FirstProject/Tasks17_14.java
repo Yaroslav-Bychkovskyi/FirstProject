@@ -5,21 +5,17 @@ import java.util.Scanner;
 
 public class Tasks17_14 {
 
-  public static void average(int a, int b) {
+  public static int average(int a, int b) {
 
 
     int x = 0,y = 0;
 
-   // Tasks17_10 tasksA = new Tasks17_10();
-    Tasks17_10.sumDigits(a);
-     x = a;
 
+     x = Tasks17_10.sumDigits(a);;
 
-    //Tasks17_10 tasksB = new Tasks17_10();
-    Tasks17_10.sumDigits(b);
-     y = b;
+     y = Tasks17_10.sumDigits(b);;
 
-    System.out.println((x + y) / 2);
+    return (x + y) / 2;
 
 
   }
@@ -34,11 +30,7 @@ public class Tasks17_14 {
     System.out.println("Введеть число b - ");
     int scrB = scanner.nextInt();
 
-
-    //  System.out.println(scrA);
-    //System.out.println(scrB);
-
-    average(scrA,scrB);
+    System.out.println(average(scrA,scrB));
 
   }
 }
