@@ -6,17 +6,23 @@ public class Tasks17_15 {
 
   public static boolean primeNumber(int a) {
 
-    final int b = 2;
+    int b;
+   System.out.println("Перевіряю на просте число: " + a);
 
-    if (a > 1) {
-      if (a % b != 0) {
-        return true;
+    if (a == 0 || a == 1) {
+      return false;
+    }
+
+
+    for (int i = 2; i < a - 1; i++) {
+      b = a % i;
+
+      if (b == 0) {
+        return false;
       }
 
-    } else if (a % b == 0) {
-
     }
-    return false;
+    return true;
   }
 
   public static void main(String[] args) {

@@ -11,14 +11,7 @@ public class Tasks17_22 {
     if (D == 0) {
       return true;
     }
-    if (D > 0) {
-      return true;
-
-    } else if (D < 0) {
-
-    }
-    return false;
-
+    return D > 0;
   }
 
   public static void main(String[] args) {
