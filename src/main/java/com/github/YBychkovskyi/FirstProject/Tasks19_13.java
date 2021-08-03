@@ -3,30 +3,34 @@ package com.github.YBychkovskyi.FirstProject;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Tasks19_12 {
+public class Tasks19_13 {
 
-  public static void randomNumbers(int[] mass, int x, int y) {
-
+  public static void fillingArray(int[] mass, int x, int y) {
     for (int i = 0; i < mass.length; i++) {
+      mass[i] = generate(x, y);
 
-      mass[i] = (x + (int) ((y - x + 1) * Math.random())) + 1;
+            while (!sumDigitsDividedNine(mass[i])) {
+        mass[i] = generate(x, y);
 
-      int massX[] = Tasks17_16.leftDigit(mass[i]);
-
-      System.out.print(Arrays.toString(massX) + " ");
-
-      if (massX[0] > massX[1]) {
-
-      } else {
-        mass[i] = massX[1] * 10 + massX[0];
       }
 
     }
-
     System.out.println();
     System.out.println(Arrays.toString(mass));
-
   }
+
+  private static int generate(int x, int y) {
+    return (x + (int) ((y - x + 1) * Math.random())) + 1;
+  }
+
+  public static boolean sumDigitsDividedNine(int mass) {
+
+    if (mass % 9 == 0) {
+      return true;
+    }
+    return false;
+  }
+
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
@@ -35,6 +39,6 @@ public class Tasks19_12 {
     System.out.println("Введіть довжину масива n - ");
     int n = scanner.nextInt();
     int mass[] = new int[n];
-    randomNumbers(mass, x, y);
+    fillingArray(mass, x, y);
   }
 }
