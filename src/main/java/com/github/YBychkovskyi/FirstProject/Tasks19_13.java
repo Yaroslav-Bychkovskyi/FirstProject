@@ -19,7 +19,7 @@ public class Tasks19_13 {
     System.out.println(Arrays.toString(mass));
   }
 
-  private static int generate(int x, int y) {
+  public static int generate(int x, int y) {
     return (x + (int) ((y - x + 1) * Math.random())) + 1;
   }
 
