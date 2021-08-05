@@ -5,26 +5,29 @@ import java.util.Arrays;
 public class Tasks19_21 {
   public static void elementsNotRepeated(int[] mass, int x, int y) {
 
-    int b = 0;
+    int c = 0;
 
     for (int i = 0; i < mass.length; i++) {
-      final var generate = Tasks19_13.generate(x, y);
-      mass[i] = generate;
+      var generate = Tasks19_13.generate(x, y);
 
-      while (audit(mass, )) {
-        mass[i] = generate;
+      while (audit(mass, generate)) {
+         c++;
+        generate = Tasks19_13.generate(x, y);
       }
-  //    b = mass[i];
+      mass[i] = generate;
 
     }
 
     System.out.println(Arrays.toString(mass));
+    Arrays.sort(mass);
+    System.out.println(Arrays.toString(mass));
+    System.out.println(c);
   }
 
   public static boolean audit(int[] mass, int c) {
 
     for (int i = 0; i < mass.length; i++) {
-     // c = mass[i];
+
       if (c == mass[i]) {
 
         return true;
@@ -37,7 +40,7 @@ public class Tasks19_21 {
   public static void main(String[] args) {
     int x = 10;
     int y = 99;
-    int mass[] = new int[8];
+    int mass[] = new int[9];
     elementsNotRepeated(mass, x, y);
   }
 }
