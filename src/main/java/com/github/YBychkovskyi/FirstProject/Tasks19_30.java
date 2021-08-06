@@ -5,17 +5,15 @@ import java.util.Arrays;
 public class Tasks19_30 {
 
   public static boolean orderedAscending(int[] m) {
-     Arrays.sort(m);
-   System.out.println(Arrays.toString(m));
 
     for (int i = 1; i < m.length; i++) {
 
-      if (m[i] <= m[i - 1]) {
+      if (m[i] < m[i - 1]) {
 
-        return true;
+        return false;
       }
     }
-    return false;
+    return true;
   }
 
   public static void main(String[] args) {
