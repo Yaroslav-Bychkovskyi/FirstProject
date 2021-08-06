@@ -6,14 +6,13 @@ public class Tasks19_30 {
 
   public static boolean orderedAscending(int[] m) {
 
+    boolean result = true;
+
     for (int i = 1; i < m.length; i++) {
-
-      if (m[i] < m[i - 1]) {
-
-        return false;
-      }
+      result = result && m[i] >= m[i - 1];
     }
-    return true;
+
+    return result;
   }
 
   public static void main(String[] args) {
