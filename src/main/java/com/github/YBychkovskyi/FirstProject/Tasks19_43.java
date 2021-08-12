@@ -5,25 +5,48 @@ import java.util.Arrays;
 public class Tasks19_43 {
   public static int[] noRepetitionsValues(int[] masX, int[] masY) {
     Arrays.sort(masX);
+    removeElement(masX);
     Arrays.sort(masY);
+    removeElement(masY);
 
-    Tasks19_42.ascendingOrder(masX, masY);
+    int[] masZ = Tasks19_42.ascendingOrder(masX, masY);
 
-    return null;
+    removeElement(masZ);
+    return masZ;
   }
 
-  public static int[] removeElement(int[] m) {
+  public static void removeElement(int[] mass) {
+
+    Integer[] m = new Integer[mass.length];
+    for (int i = 0; i < mass.length; i++) {
+      m[i] = mass[i];
+    }
+
+
     for (int i = 0; i < m.length; i++) {
       for (int j = i + 1; j < m.length; j++) {
 
-        if (m[i] == m[j]) {
-
-
+        if (m[i].equals(m[j])) {
+          m[j] = null;
         }
       }
-
     }
-    return null;
+
+    int count = 0;
+    for (Integer integer : m) {
+      if (integer == null) {
+        count++;
+      }
+    }
+
+
+    int[] arr = new int[m.length - count];
+    for (int i = 0; i < m.length; i++) {
+      if (m[i] != null) {
+        arr[i] = m[i];
+      }
+    }
+
   }
 
 
@@ -35,6 +58,7 @@ public class Tasks19_43 {
 
     Tasks19_22.creatingArray(massX, x, y);
     Tasks19_22.creatingArray(massY, x, y);
+    System.out.println(Arrays.toString(noRepetitionsValues(massX, massY)));
   }
 }
 
