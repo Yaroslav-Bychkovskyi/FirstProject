@@ -5,14 +5,22 @@ import java.util.Arrays;
 public class Tasks19_43 {
   public static int[] noRepetitionsValues(int[] masX, int[] masY) {
     Arrays.sort(masX);
-    removeElement(masX);
     Arrays.sort(masY);
-    removeElement(masY);
 
     int[] masZ = Tasks19_42.ascendingOrder(masX, masY);
 
     removeElement(masZ);
     return masZ;
+  }
+
+  public static boolean itemSearch(int[] m, int n) {
+
+    for (int j : m) {
+      if (n == j) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static void removeElement(int[] mass) {
@@ -26,7 +34,7 @@ public class Tasks19_43 {
     for (int i = 0; i < m.length; i++) {
       for (int j = i + 1; j < m.length; j++) {
 
-        if (m[i].equals(m[j])) {
+        if (m[i] == m[j]) {
           m[j] = null;
         }
       }
@@ -38,6 +46,7 @@ public class Tasks19_43 {
         count++;
       }
     }
+    System.out.println(count);
 
 
     int[] arr = new int[m.length - count];
