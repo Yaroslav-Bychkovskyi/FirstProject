@@ -8,19 +8,8 @@ public class Tasks19_43 {
     Arrays.sort(masY);
 
     int[] masZ = Tasks19_42.ascendingOrder(masX, masY);
-
-
     return removeElement(masZ);
-  }
 
-  public static boolean itemSearch(int[] m, int n) {
-
-    for (int j : m) {
-      if (n == j) {
-        return true;
-      }
-    }
-    return false;
   }
 
   public static int[] removeElement(int[] mass) {
@@ -32,19 +21,15 @@ public class Tasks19_43 {
 
     int count = 0;
 
-
     for (int i = 0; i < m.length; i++) {
       for (int j = i + 1; j < m.length; j++) {
 
         if (m[i] != null && m[i].equals(m[j])) {
           System.out.println(m[j]);
           m[j] = null;
-
         }
-
       }
     }
-    System.out.println(Arrays.toString(m));
 
 
     for (Integer integer : m) {
@@ -52,7 +37,6 @@ public class Tasks19_43 {
         count++;
       }
     }
-    System.out.println(count);
 
     int a = 0;
     int[] arr = new int[m.length - count];
@@ -63,7 +47,7 @@ public class Tasks19_43 {
       }
     }
     System.out.println("arr - ");
-   System.out.println(Arrays.toString(arr));
+    System.out.println(Arrays.toString(arr));
 
     return arr;
 
@@ -73,12 +57,12 @@ public class Tasks19_43 {
   public static void main(String[] args) {
     int x = 10;
     int y = 99;
-    int[] massX = new int[5];
-    int[] massY = new int[5];
+    int[] massX = new int[20];
+    int[] massY = new int[20];
 
     Tasks19_22.creatingArray(massX, x, y);
     Tasks19_22.creatingArray(massY, x, y);
-    System.out.println(Arrays.toString(noRepetitionsValues(massX, massY)));
+    noRepetitionsValues(massX, massY);
   }
 }
 

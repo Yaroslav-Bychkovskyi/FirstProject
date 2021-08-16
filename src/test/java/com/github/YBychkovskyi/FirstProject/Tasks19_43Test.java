@@ -17,9 +17,4 @@ class Tasks19_43Test {
   void removeElement() {
   }
 
-  @Test
-  void itemSearch(){
-    assertTrue(Tasks19_43.itemSearch(new int[]{1, 2, 3, 9, 5}, 3));
-    assertFalse(Tasks19_43.itemSearch(new int[]{1, 2, 3, 9, 5}, 7));
-  }
 }
