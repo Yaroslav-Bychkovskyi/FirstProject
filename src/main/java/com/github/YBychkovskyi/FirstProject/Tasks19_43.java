@@ -9,8 +9,8 @@ public class Tasks19_43 {
 
     int[] masZ = Tasks19_42.ascendingOrder(masX, masY);
 
-    removeElement(masZ);
-    return masZ;
+
+    return removeElement(masZ);
   }
 
   public static boolean itemSearch(int[] m, int n) {
@@ -23,24 +23,30 @@ public class Tasks19_43 {
     return false;
   }
 
-  public static void removeElement(int[] mass) {
+  public static int[] removeElement(int[] mass) {
 
     Integer[] m = new Integer[mass.length];
     for (int i = 0; i < mass.length; i++) {
       m[i] = mass[i];
     }
 
+    int count = 0;
+
 
     for (int i = 0; i < m.length; i++) {
       for (int j = i + 1; j < m.length; j++) {
 
-        if (m[i] == m[j]) {
+        if (m[i] != null && m[i].equals(m[j])) {
+          System.out.println(m[j]);
           m[j] = null;
+
         }
+
       }
     }
+    System.out.println(Arrays.toString(m));
 
-    int count = 0;
+
     for (Integer integer : m) {
       if (integer == null) {
         count++;
@@ -48,13 +54,18 @@ public class Tasks19_43 {
     }
     System.out.println(count);
 
-
+    int a = 0;
     int[] arr = new int[m.length - count];
     for (int i = 0; i < m.length; i++) {
       if (m[i] != null) {
-        arr[i] = m[i];
+        arr[a] = m[i];
+        a++;
       }
     }
+    System.out.println("arr - ");
+   System.out.println(Arrays.toString(arr));
+
+    return arr;
 
   }
 
