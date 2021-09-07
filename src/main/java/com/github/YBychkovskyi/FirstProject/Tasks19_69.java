@@ -8,20 +8,33 @@ public class Tasks19_69 {
 
     double o;
     int a = 0;
-    int b = 1;
-    double[] mass = new double[m.length / 2];
+    int b = 0;
 
+
+    double[] mass = new double[m.length / 2];
     if (m.length % 2 == 0) {
       for (int i = 0; i < m.length; i = i + 2) {
         o = Math.sqrt(Math.pow(m[i], 2) + Math.pow(m[i + 1], 2));
-        if (o < r){
+        if (o < r) {
+          b++;
           mass[a] = o;
           a++;
+
+
         }
       }
     }
+    double[] arr = new double[b];
+    int x = 0;
+    for (int i = 0; i < b; i++) {
+      if (mass[i] != 0) {
+        arr[x] = mass[i];
+        x++;
+      }
 
-    return mass;
+    }
+
+    return arr;
   }
 
   public static void main(String[] args) {
