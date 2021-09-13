@@ -32,13 +32,18 @@ public class TasksCells {
         if (comparison(x1, x2, arrBlack) && comparison(y1, y2, arrBlack)) {
           fileWriter.write("YES");
         } else fileWriter.write("NO");
-      } else
-
-      if (x1 % 2 == 0 && y1 % 2 == 0) {
+      } else if (x1 % 2 == 0 && y1 % 2 == 0){
         if (comparison(x1, x2, arrWhite) && comparison(y1, y2, arrWhite)) {
           fileWriter.write("YES");
         } else fileWriter.write("NO");
       }
+    }
+    if (x1 % 2 != 0 && y1 % 2 == 0) {
+      if (comparison(x1, x2, arrWhite) && comparison(y1, y2, arrBlack)) {
+        fileWriter.write("YES");
+      } else fileWriter.write("NO");
+
+
     }
 
 
