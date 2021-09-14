@@ -41,13 +41,6 @@ public class TasksCells {
   }
 
   public static int comparison(int a, int b) {
-
-    if ((a + b) % 2 == 0) {
-
-      return 1;
-
-    }
-    return 0;
-
+    return (a + b) % 2;
   }
 }
