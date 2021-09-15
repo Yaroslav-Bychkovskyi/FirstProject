@@ -5,26 +5,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class TasksPowerOfTwo {
+public class TasksNK7 {
   public static void main(String[] args) throws IOException {
-
-
     FileReader fr = new FileReader("input.txt");
     Scanner scanner = new Scanner(fr);
-
-    int scrA = scanner.nextInt();
-
-    if (scrA < 0 || scrA > 1024) {
-      System.out.println("Помилка");
-      throw new RuntimeException("Runtime");
-    }
-
+    int n = scanner.nextInt();
+    int k = scanner.nextInt();
+    int m;
+    m = n / k;
     FileWriter fileWriter = new FileWriter("output.txt");
-
-    if ((scrA > 0) && ((scrA & (scrA - 1)) == 0)) {
-      fileWriter.write("YES");
-    } else fileWriter.write("NO");
-
+    fileWriter.write(m + " ");
     fileWriter.close();
   }
 }
