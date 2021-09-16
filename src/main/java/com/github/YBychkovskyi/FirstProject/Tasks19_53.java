@@ -28,5 +28,6 @@ public class Tasks19_53 {
     int[] mass = new int[8];
     Tasks19_22.creatingArray(mass, x, y);
     System.out.println(Arrays.toString(orderly(mass)));
+
   }
 }
