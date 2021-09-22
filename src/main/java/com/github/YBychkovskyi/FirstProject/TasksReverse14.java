@@ -9,13 +9,46 @@ public class TasksReverse14 {
     String output = "output.txt";
 
     String s = TasksWriteReader.reader(input);
-    final var split = s.split("\n");
 
-    int n = Integer.parseInt(split[0]);
+    int[] arr = parseString(s);
 
+    final var reversedArr = solveTask(arr);
+
+    var result = toFileContent(reversedArr);
+
+    TasksWriteReader.writer(output, result);
+  }
+
+  private static int[] solveTask(int[] arr) {
+    var result = new int[arr.length];
+
+    for (int i = arr.length - 1; i >= 0; i--) {
+      result[arr.length - 1 - i] = arr[i];
+    }
+
+    return result;
+  }
+
+  private static String toFileContent(int[] arr) {
     StringBuilder stringBuilder = new StringBuilder();
 
-   // TasksWriteReader.writer(input, stringBuilder.toString());
+    for (int i = 0; i < arr.length; i++) {
+      stringBuilder.append(arr[i]).append(" ");
+    }
 
+    return stringBuilder.toString();
+  }
+
+  public static int[] parseString(String s) {
+    final var split = s.split("\n");
+
+    String[] mass = split[1].split("\\s");
+    int[] arr = new int[mass.length];
+
+    for (int i = 0; i < mass.length; i++) {
+      int m = Integer.parseInt(mass[i]);
+      arr[i] = m;
+    }
+    return arr;
   }
 }
