@@ -13,15 +13,16 @@ public class Person {
   }
 
   public void move() {
-    System.out.println("Такой-то  Person говорит");
+    System.out.println("Такой-то " + fullName + " говорит");
   }
 
   public void talk() {
-    System.out.println("Такой-то  Person говорит");
+    System.out.println("Такой-то" + fullName + " говорит");
   }
 
   public static void main(String[] args) {
-    Person person = new Person("Name",20);
+    Person person = new Person("Name", 20);
     Person person1 = new Person();
+    person.move();
   }
 }
